@@ -1,0 +1,15 @@
+void CalculateMonthlyPayment(float LoanAmount, float AnnualInterestRate, int NumberOfPayments, int Payments)
+{
+	// calculates the monthly payment using
+	// LoanAmount, AnnualInterestRate, and
+	// NumberOfPayments
+
+	float MonthlyInterestRate = AnnualInterestRate / 12 / 100;	// convert to monthly interest rate
+
+	// P = L * i^n * i
+	//     -------------
+	//       i^n - 1
+	Payments = (LoanAmount * pow(1 + MonthlyInterestRate, NumberOfPayments) * 
+		MonthlyInterestRate) /
+		pow(1 + MonthlyInterestRate, NumberOfPayments) - 1;
+}
